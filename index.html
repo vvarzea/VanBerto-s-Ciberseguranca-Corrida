@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-PT">
+<html lang="pt-PT" translate="no">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#fff8e7">
+<meta http-equiv="Content-Language" content="pt-PT">
+<meta name="language" content="pt-PT">
 <title>VanBerto's — Corrida da Cibersegurança</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Baloo+2:wght@700;800;900&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg-deep:#0a0414;
@@ -458,6 +460,165 @@ main{display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.1r
 body.pc-scaled {
   overflow-x: hidden;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   TEMA "Hora do Código" — igual ao da Central de Missões
+   creme com pontinhos, contornos escuros e sombras de botão
+   (bloco final: sobrepõe-se ao estilo escuro anterior)
+   ═══════════════════════════════════════════════════════════════════ */
+@font-face{font-family:'Fredoka';src:url(fonts/fredoka-latin-wght-normal.woff2) format('woff2');font-weight:300 700;font-display:swap;}
+@font-face{font-family:'Nunito';src:url(fonts/nunito-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap;}
+@font-face{font-family:'Nunito';src:url(fonts/nunito-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap;}
+@font-face{font-family:'Nunito';src:url(fonts/nunito-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap;}
+:root{
+  --ink:#1e1b4b;--sun:#ffd23f;--coral:#ff6b6b;--mint:#2ee6a6;--sky:#4cc9f0;--grape:#7c3aed;--cream:#fff8e7;--soft:#4a4872;
+  /* as variáveis do estilo anterior, agora no tema claro */
+  --bg-deep:#fff8e7;--bg-mid:#fff8e7;--bg-card:#ffffff;
+  --accent:#1e1b4b;--accent2:#1e1b4b;
+  --text:#1e1b4b;--text-soft:#4a4872;
+  --border:#1e1b4b;--shadow:#1e1b4b;
+  --green:#12a36f;--red:#e0443e;
+  --font-display:'Fredoka','Nunito',sans-serif;--font-body:'Fredoka','Nunito',sans-serif;--font-ui:'Nunito','Trebuchet MS',sans-serif;
+}
+html,body{
+  background-color:var(--cream)!important;
+  background-image:radial-gradient(rgba(255,150,60,.30) 1.4px,transparent 1.6px)!important;
+  background-size:22px 22px!important;background-attachment:fixed;
+  color:var(--ink);
+}
+body::before{display:none;}
+#stars-cv{display:none;}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;}}
+
+/* ── controlos e cabeçalho ── */
+.ctrl-btn{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 3px 0 var(--ink);transition:transform .08s,box-shadow .08s;}
+.ctrl-btn:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--ink);}
+.ctrl-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink);}
+header{background:#fff;backdrop-filter:none;border-bottom:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);}
+header h1{color:var(--ink);text-shadow:none;font-weight:700;}
+.hd-sub{background:var(--cream)!important;border:2px solid var(--ink)!important;color:var(--ink)!important;}
+#loading-screen{background-color:var(--cream);background-image:radial-gradient(rgba(255,150,60,.30) 1.4px,transparent 1.6px);background-size:22px 22px;}
+.loading-title{color:var(--ink);text-shadow:none;font-weight:700;}
+.loading-robot{filter:drop-shadow(0 4px 0 rgba(30,27,75,.35));}
+
+/* ── preparação ── */
+#setup-panel{background:#fff;border:4px solid var(--ink);border-radius:20px;box-shadow:0 7px 0 var(--ink);}
+#setup-panel::before,#setup-panel::after{display:none;}
+.setup-title{color:var(--ink);text-shadow:none;font-weight:700;border-bottom:3px dotted rgba(30,27,75,.28);padding-bottom:.4rem;}
+.setup-section{color:var(--ink);font-weight:700;}
+.diff-btn{background:#fff;border:2.5px solid var(--ink);color:var(--ink);font-weight:600;box-shadow:0 3px 0 var(--ink);transition:transform .08s,box-shadow .08s,background .12s;}
+.diff-btn.easy,.diff-btn.medium,.diff-btn.hard{border-color:var(--ink);color:var(--ink);}
+.diff-btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--ink);}
+.diff-btn.easy.active{background:var(--mint);color:var(--ink);box-shadow:0 3px 0 var(--ink);}
+.diff-btn.medium.active{background:var(--sun);color:var(--ink);box-shadow:0 3px 0 var(--ink);}
+.diff-btn.hard.active{background:var(--coral);color:var(--ink);box-shadow:0 3px 0 var(--ink);}
+.diff-desc{font-style:normal;font-weight:700;color:var(--soft);}
+#record-line{color:var(--grape)!important;font-weight:700!important;}
+.player-row{background:var(--cream);border:2px solid var(--ink);box-shadow:0 2px 0 var(--ink);}
+.player-name-input{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--ink);}
+.player-name-input:focus{border-color:var(--ink);outline:3px solid var(--grape);outline-offset:2px;}
+.player-name-input::placeholder{color:var(--soft);opacity:.6;}
+.ptog{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--ink);font-weight:600;}
+.ptog.on{background:var(--mint);color:var(--ink);border-color:var(--ink);}
+.ptog.cpu-on{background:#e6e6f5;color:var(--ink);border-color:var(--ink);}
+.btn-start,.btn-replay{background:var(--sun);color:var(--ink);border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);text-shadow:none;font-weight:600;transition:transform .08s,box-shadow .08s,background .12s;}
+.btn-start:hover,.btn-replay:hover{background:#ffdc66;transform:translateY(-2px);box-shadow:0 6px 0 var(--ink);}
+.btn-start:active,.btn-replay:active{transform:translateY(3px);box-shadow:0 1px 0 var(--ink);}
+.car-carousel-arrow{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--ink);}
+.car-carousel-arrow:hover{background:#fffbea;}
+.btn-start:focus-visible,.diff-btn:focus-visible,.opt:focus-visible,.ctrl-btn:focus-visible,.ptog:focus-visible,.btn-replay:focus-visible{outline:3px solid var(--grape);outline-offset:3px;}
+
+/* ── pista ── */
+#track-wrap{background:#fff;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);}
+.track-hdr{color:var(--ink);text-shadow:none;font-weight:700;}
+.lane-label,.pts-badge,.score-name,.score-pts{color:var(--ink)!important;font-weight:700;}
+.track-bar{background:var(--cream);border:2.5px solid var(--ink);}
+.finish-flag{opacity:1;}
+#track-toggle{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 3px 0 var(--ink);}
+#scoreboard{background:#fff;border:3px solid var(--ink);box-shadow:0 4px 0 var(--ink);}
+.score-row+.score-row{border-top:2px dotted rgba(30,27,75,.25);}
+.score-bar-wrap{background:var(--cream);border:2px solid var(--ink);}
+#tiebreak-banner{background:var(--sun);border:3px solid var(--ink);color:var(--ink);box-shadow:0 4px 0 var(--ink);}
+
+/* ── pergunta ── */
+#cat-badge{background:#fff;border:2.5px solid var(--ink);color:var(--ink);box-shadow:0 2px 0 var(--ink);}
+#q-meta{color:var(--ink);}
+#turn-label{color:var(--ink)!important;font-weight:700;}
+#q-counter{color:var(--soft);}
+#q-progress-wrap{background:#fff;border:2.5px solid var(--ink);height:11px;border-radius:999px;}
+#q-progress-bar{border-radius:999px;}
+#q-box{background:#fff;border:3px solid var(--ink);box-shadow:0 5px 0 var(--ink);}
+#q-text{color:var(--ink);text-shadow:none;font-weight:600;}
+.opt{position:relative;background:#fff;border:3px solid var(--ink);color:var(--ink);font-weight:600;box-shadow:0 3px 0 var(--ink);transition:transform .08s,box-shadow .08s,background .12s;}
+.opt:hover:not(:disabled){background:#fff3b0;border-color:var(--ink);color:var(--ink);transform:translateY(-2px);box-shadow:0 5px 0 var(--ink);}
+.opt:active:not(:disabled){transform:translateY(2px);box-shadow:0 1px 0 var(--ink);}
+.opt.correct{background:#b8f5d9;border-color:var(--ink);color:var(--ink);box-shadow:0 3px 0 var(--ink);animation:optPop .55s cubic-bezier(.34,1.56,.64,1);}
+.opt.wrong{background:#ffb3b3;border-color:var(--ink);color:var(--ink);box-shadow:0 3px 0 var(--ink);}
+@keyframes optPop{0%{transform:scale(1)}35%{transform:scale(1.07) rotate(-1deg)}100%{transform:scale(1)}}
+#feedback{font-weight:700;}
+#feedback.ok{color:#0f7a4f;}
+#feedback.err{color:#b42318;}
+
+/* ── robô ── */
+.bubble{--bc:#fff;background:#fff;border:3px solid var(--ink);outline:none;box-shadow:0 3px 0 var(--ink);color:var(--ink);font-weight:700;}
+.bubble::after{border-top-color:var(--ink);}
+.bubble::before{border-top-color:#fff;}
+#vb-main{filter:drop-shadow(0 4px 0 rgba(30,27,75,.35));}
+#vb-main:hover{filter:drop-shadow(0 4px 0 rgba(30,27,75,.35));}
+.signature{color:var(--ink);opacity:1;font-weight:700;}
+
+/* ── pausa, contagem e vitória ── */
+#pause-overlay,#countdown-overlay,#win-overlay{background:rgba(255,248,231,.92);}
+#pause-overlay>div{background:#fff!important;border:4px solid var(--ink)!important;border-radius:20px!important;box-shadow:0 7px 0 var(--ink)!important;}
+#pause-overlay div[style*="font-size:2rem"]{color:var(--ink)!important;}
+#pause-overlay p{color:var(--soft)!important;}
+#pause-overlay button{background:#fff!important;color:var(--ink)!important;border:3px solid var(--ink)!important;box-shadow:0 4px 0 var(--ink)!important;text-shadow:none!important;font-weight:600;}
+#pause-overlay button:first-child{background:var(--sun)!important;}
+#pause-overlay button:last-child{background:var(--coral)!important;}
+#countdown-num{color:var(--ink);text-shadow:0 6px 0 var(--sun);}
+#countdown-label{color:var(--soft);font-weight:700;}
+.win-card{background:#fff;border:4px solid var(--ink);border-radius:22px;box-shadow:0 7px 0 var(--ink);}
+.win-title{color:var(--ink);text-shadow:none;font-weight:700;}
+.win-subtitle{color:var(--soft);}
+#record-badge{color:var(--ink)!important;text-shadow:none!important;background:var(--sun);border:3px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 var(--ink);padding:.1rem .9rem;display:inline-block;}
+.pod-row{background:var(--cream);border:2.5px solid var(--ink);box-shadow:0 3px 0 var(--ink);color:var(--ink);}
+.pod-row:first-child{background:#fff3b0;border-color:var(--ink)!important;}
+.pod-row span[style*="color"]{color:var(--ink)!important;}
+.pod-score{color:var(--soft);}
+.pod-row img,.pod-row svg{width:84px!important;height:auto!important;max-height:54px;object-fit:contain;flex-shrink:0;}
+.pod-row{white-space:nowrap;}
+#win-history>div:first-child{color:var(--ink)!important;}
+#history-tabs button{color:var(--ink)!important;background:#fff!important;border:2.5px solid var(--ink)!important;box-shadow:0 2px 0 var(--ink);font-weight:600;}
+#history-content>div{background:var(--cream)!important;border:2px solid var(--ink)!important;}
+#history-content span[style*="9fffed"]{color:#0f7a4f!important;background:#d9fbec!important;border-color:#12a36f!important;}
+#history-content span[style*="ffb3b3"]{color:#b42318!important;background:#ffe3e3!important;border-color:#e0443e!important;}
+#history-content p{color:#0f7a4f!important;}
+
+/* ── selos e festa ── */
+.streak-badge{background:var(--sun);-webkit-text-fill-color:var(--ink);color:var(--ink);border:4px solid var(--ink);border-radius:22px;box-shadow:0 6px 0 var(--ink);padding:.15em .6em;filter:none;font-size:clamp(1.4rem,6vw,2.2rem);}
+.spark{position:absolute;left:50%;top:50%;font-size:18px;line-height:1;pointer-events:none;z-index:20;animation:sparkFly .9s ease-out forwards;}
+@keyframes sparkFly{
+  0%{transform:translate(-50%,-50%) scale(.4);opacity:1;}
+  100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.3) rotate(var(--rot));opacity:0;}
+}
+#wordPop{
+  position:fixed;left:50%;top:80%;z-index:940;pointer-events:none;
+  transform:translate(-50%,-50%) scale(.3) rotate(-6deg);opacity:0;
+  background:#fff;border:4px solid var(--ink);border-radius:22px;box-shadow:0 7px 0 var(--ink);
+  padding:.3em .9em .35em;text-align:center;white-space:nowrap;
+  font-family:'Fredoka','Nunito',sans-serif;font-weight:700;color:var(--ink);
+  font-size:clamp(1.1rem,5vw,1.9rem);line-height:1.1;
+}
+#wordPop small{display:block;font-size:.42em;color:var(--grape);margin-bottom:.15em;}
+#wordPop b{display:inline-block;padding:0 .3em;border-radius:12px;background:var(--sun);border:3px solid var(--ink);}
+#wordPop.show{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(-2deg);animation:wordPopIn 1.5s ease both;}
+@keyframes wordPopIn{
+  0%{transform:translate(-50%,-50%) scale(.3) rotate(-8deg);opacity:0;}
+  18%{transform:translate(-50%,-50%) scale(1.15) rotate(2deg);opacity:1;}
+  30%{transform:translate(-50%,-50%) scale(1) rotate(-2deg);}
+  78%{transform:translate(-50%,-50%) scale(1) rotate(-2deg);opacity:1;}
+  100%{transform:translate(-50%,-62%) scale(.9) rotate(-2deg);opacity:0;}
+}
 </style>
 </head>
 <body>
@@ -511,7 +672,7 @@ body.pc-scaled {
       <button class="diff-btn medium" data-diff="medium">⭐⭐ Médio</button>
       <button class="diff-btn hard" data-diff="hard">⭐⭐⭐ Difícil</button>
     </div>
-    <p class="diff-desc" id="diff-desc">20 segundos · perguntas simples</p>
+    <p class="diff-desc" id="diff-desc">Perguntas simples — sem pressas!</p>
     <p class="diff-desc" id="record-line" style="margin-top:-.4rem;color:#ffa733;font-weight:700;"></p>
     <div class="setup-section">👥 Jogadores</div>
     <div id="players-setup"></div>
@@ -535,12 +696,6 @@ body.pc-scaled {
 
   <!-- TIEBREAK -->
   <div id="tiebreak-banner"></div>
-
-  <!-- TEMPORIZADOR -->
-  <div id="timer-wrap" style="display:none">
-    <div id="timer-bar-bg"><div id="timer-bar" style="width:100%"></div></div>
-    <div id="timer-txt">20s</div>
-  </div>
 
   <!-- PERGUNTA -->
   <div id="q-wrap" style="display:none">
@@ -569,6 +724,7 @@ body.pc-scaled {
 
 <!-- STREAK BADGE (position:fixed — fora do scaler) -->
 <div class="streak-badge" id="streak-badge"></div>
+<div id="wordPop" role="status" aria-live="polite"></div>
 
 <!-- WIN -->
 <div id="win-overlay" role="dialog" aria-modal="true">
@@ -979,9 +1135,9 @@ const ALL_Q = [
 
 /* ══ DIFICULDADES ══ */
 const DIFFS={
-  easy:{label:'Fácil',time:20,desc:'20 segundos · perguntas simples',filter:q=>q.diff===1},
-  medium:{label:'Médio',time:15,desc:'15 segundos · perguntas variadas',filter:q=>q.diff<=2},
-  hard:{label:'Difícil',time:10,desc:'10 segundos · todas as perguntas',filter:()=>true},
+  easy:{label:'Fácil',time:0,desc:'Perguntas simples — sem pressas!',filter:q=>q.diff===1},
+  medium:{label:'Médio',time:0,desc:'Perguntas variadas — sem pressas!',filter:q=>q.diff<=2},
+  hard:{label:'Difícil',time:0,desc:'Todas as perguntas — sem pressas!',filter:()=>true},
 };
 let curDiff='easy';
 
@@ -1244,7 +1400,6 @@ function startGame(){
   roundNum=0;
   document.getElementById('setup-panel').style.display='none';
   document.getElementById('track-wrap').style.display='block';
-  document.getElementById('timer-wrap').style.display='block';
   document.getElementById('q-wrap').style.display='block';
   document.getElementById('pause-btn').style.display='flex';
   if(window.vbApplyScale) requestAnimationFrame(()=>requestAnimationFrame(window.vbApplyScale));
@@ -1311,32 +1466,12 @@ function updateTrack(justScored){
 }
 
 /* ══ TEMPORIZADOR ══ */
-function startTimer(onTimeout){
-  clearInterval(timerInt);
-  timerLeft=timerMax;
-  updateTimerUI();
-  timerInt=setInterval(()=>{
-    timerLeft=Math.max(0,timerLeft-.1);
-    updateTimerUI();
-    if(timerLeft<=0){clearInterval(timerInt);onTimeout();}
-    // shake car when time is running out
-    if(timerLeft<=4&&timerLeft>0){
-      const runEl=document.getElementById(`runner-${curPlayer}`);
-      if(runEl&&!runEl.classList.contains('shaking'))runEl.classList.add('shaking');
-    }
-  },100);
-}
-function stopTimer(){clearInterval(timerInt);}
-function updateTimerUI(){
-  const pct=(timerLeft/timerMax)*100;
-  const bar=document.getElementById('timer-bar');
-  bar.style.width=pct+'%';
-  const r=Math.round(255*(1-pct/100)*2),g=Math.round(255*(pct/100)*2);
-  bar.style.background=`rgb(${Math.min(255,r)},${Math.min(255,g)},50)`;
-  document.getElementById('timer-txt').textContent=Math.ceil(timerLeft)+'s';
-}
+/* (cronómetro removido — o jogo já não conta o tempo) */
+function startTimer(){}
+function stopTimer(){}
+function updateTimerUI(){}
 
-/* ══ PERGUNTA ══ */
+/* ── PERGUNTA ── */
 function replenishQs(){
   // If we're running out of questions, add more (shuffled to avoid immediate repeats)
   const maxNeeded=players.length*(window._tbMax||Q_PER_PLAYER);
@@ -1384,46 +1519,34 @@ function showQ(){
     opts.appendChild(b);
   });
   answering=true;
-  startTimer(()=>{
-    // tempo esgotado — trata como erro
-    if(!answering)return;
-    answering=false;
-    Array.from(opts.querySelectorAll('.opt')).forEach(b=>{
-      b.disabled=true;
-      if(shuffled.find(o=>o.text===b.textContent&&o.correct))b.classList.add('correct');
-    });
-    sndErr();vib([200]);
-    document.getElementById('feedback').textContent='Tempo esgotado! ⏱️';
-    document.getElementById('feedback').className='err';
-    bub('O tempo acabou! Próxima! ⏱️',false);
-    // Guardar timeout como erro
-    const tq=gameQs[totalAnswered];
-    const tCorr=shuffled.find(o=>o.correct);
-    errorLog[curPlayer].push({q:tq.q,cat:tq.cat||'📚 Geral',correct:tCorr?tCorr.text:'?',chosen:'⏱️ Tempo esgotado'});
-    const timeoutQ=gameQs[totalAnswered];
-    qPerPlayer[curPlayer]++;totalAnswered++;
-    if(totalAnswered>0&&totalAnswered%players.length===0) roundNum++;
-    checkFinishCondition();
-    if(cpuPresent()){
-      const ci=cpuIdx();
-      if(ci>=0&&qPerPlayer[ci]<Q_PER_PLAYER){
-        const cpuAcc={easy:.60,medium:.75,hard:.88}[curDiff];
-        const cpuCorrect=Math.random()<cpuAcc;
-        if(cpuCorrect){scores[ci]++;positions[ci]++;}
-        else if(curDiff==='hard'&&positions[ci]>0){positions[ci]--;}
-        updateTrack(false);
-        qPerPlayer[ci]++;totalAnswered++;
-        document.getElementById('feedback').textContent+=(cpuCorrect?'  |  🤖 PC acertou!':'  |  🤖 PC errou!');
-      }
-      curPlayer=humanIdx();
-    } else {
-      curPlayer=(curPlayer+1)%players.length;
-    }
-    setTimeout(()=>showQ(),1600);
-  });
 }
 
 function shuffleOpts(opts,ans){return shuffle(opts.map((t,i)=>({text:t,correct:i===ans})));}
+
+
+/* ── FESTA: faíscas no botão certo e selo "Boa! ⭐" ── */
+const PRAISE_ANS=['Boa!','Isso mesmo!','Fantástico!','Uau!','Excelente!','Bom olho!','Acertaste!'];
+let wordPopT=null;
+function celebrateAnswer(btn,gotBonus){
+  if(btn){
+    for(let n=0;n<10;n++){
+      const s=document.createElement('span');
+      s.className='spark';s.textContent=['⭐','✨','🌟'][n%3];
+      const ang=(n/10)*Math.PI*2+Math.random()*.5,dist=40+Math.random()*50;
+      s.style.setProperty('--dx',Math.cos(ang)*dist+'px');
+      s.style.setProperty('--dy',Math.sin(ang)*dist+'px');
+      s.style.setProperty('--rot',(Math.random()*180-90)+'deg');
+      btn.appendChild(s);
+      setTimeout(()=>s.remove(),1100);
+    }
+  }
+  const wp=document.getElementById('wordPop');
+  if(wp){
+    wp.innerHTML=gotBonus?'<small>Série!</small><b>+1 ponto extra ⭐</b>':'<small>'+PRAISE_ANS[Math.floor(Math.random()*PRAISE_ANS.length)]+'</small><b>+1 ⭐</b>';
+    wp.classList.remove('show');void wp.offsetWidth;wp.classList.add('show');
+    clearTimeout(wordPopT);wordPopT=setTimeout(()=>wp.classList.remove('show'),1500);
+  }
+}
 
 function answer(btn,correct,shuffled,opts){
   if(!answering)return;
@@ -1452,6 +1575,7 @@ function answer(btn,correct,shuffled,opts){
     bub(gotBonus?'Streak incrível! Ponto extra! 🔥':['Isso mesmo!','Uau, acertaste!','Boa resposta!','Incrível!'][~~(Math.random()*4)],false);
     const runner=document.getElementById(`runner-${curPlayer}`);
     if(runner){const r=runner.getBoundingClientRect();burst(r.left+40,r.top+20,18);}
+    celebrateAnswer(btn,gotBonus);
   } else {
     btn.classList.add('wrong');btn.classList.add('shake');
     const correctOpt=shuffled.find(o=>o.correct);
@@ -1664,7 +1788,6 @@ function restartGame(){
   document.getElementById('setup-panel').style.display='block';
   updateRecordLine();
   document.getElementById('track-wrap').style.display='none';
-  document.getElementById('timer-wrap').style.display='none';
   document.getElementById('q-wrap').style.display='none';
   document.getElementById('pause-btn').style.display='none';
   if(window.vbApplyScale) requestAnimationFrame(()=>requestAnimationFrame(window.vbApplyScale));
@@ -1737,30 +1860,6 @@ function togglePause(){
   } else {
     overlay.style.display='none';
     btn.textContent='⏸';
-    // Resume timer with remaining time
-    if(answering){
-      timerInt=setInterval(()=>{
-        timerLeft=Math.max(0,timerLeft-.1);
-        updateTimerUI();
-        if(timerLeft<=0){
-          clearInterval(timerInt);
-          // trigger same timeout logic
-          const opts=document.getElementById('opts');
-          const allBtns=Array.from(opts.querySelectorAll('.opt'));
-          if(!answering)return;
-          answering=false;
-          allBtns.forEach(b=>{b.disabled=true;});
-          sndErr();vib([200]);
-          document.getElementById('feedback').textContent='Tempo esgotado! ⏱️';
-          document.getElementById('feedback').className='err';
-          const tq=gameQs[totalAnswered];
-          errorLog[curPlayer].push({q:tq.q,cat:tq.cat||'📚 Geral',correct:'?',chosen:'⏱️ Tempo esgotado'});
-          qPerPlayer[curPlayer]++;totalAnswered++;
-          curPlayer=(curPlayer+1)%players.length;
-          setTimeout(()=>showQ(),1600);
-        }
-      },100);
-    }
   }
 }
 
